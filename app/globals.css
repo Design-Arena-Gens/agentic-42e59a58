@@ -1,0 +1,32 @@
+*,*::before,*::after{box-sizing:border-box}
+:root{--gold:#f5d77d;--lux:#0a0a0a;--white:#ffffff;--accent:#9bf6ff;--pink:#ff5ea8;--glow:#ffd1e6}
+html,body{padding:0;margin:0;background:#000;color:var(--white)}
+body{font-synthesis-weight:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Utility */
+.hide{opacity:0;pointer-events:none}
+.center{display:grid;place-items:center}
+
+/* Text styles */
+.headline{font-weight:900;letter-spacing:-.02em;line-height:1.05}
+.headline.latin{font-family: var(--playfair, serif);}
+.shadow{text-shadow:0 10px 30px rgba(0,0,0,.75), 0 0 10px rgba(255,255,255,.15)}
+
+/* Beat pulse used on cuts */
+.beat{transform:scale(1);}
+.beat.pulse{animation:beat .2s ease}
+@keyframes beat{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+
+/* Zoom, whip, glitch */
+.zoomIn{animation:zoomIn .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes zoomIn{0%{transform:scale(1.2)}100%{transform:scale(1)}}
+.whip{animation:whip .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes whip{0%{transform:translateX(30%)}100%{transform:translateX(0)}}
+.glint{position:relative;overflow:hidden}
+.glint::after{content:'';position:absolute;top:-150%;left:-150%;width:50%;height:300%;transform:rotate(25deg);background:linear-gradient(90deg,transparent 0%, rgba(255,255,255,.2) 50%, transparent 100%);animation:glint 3.2s linear infinite}
+@keyframes glint{0%{left:-150%}100%{left:200%}}
+
+/* Button */
+.cta{position:absolute;inset:auto 0 3rem;z-index:10;display:flex;justify-content:center}
+.cta button{background:#111;border:1px solid rgba(255,255,255,.15);color:#fff;padding:14px 22px;border-radius:999px;backdrop-filter:blur(8px);font-weight:700;letter-spacing:.02em;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.cta button:hover{border-color:#fff}
